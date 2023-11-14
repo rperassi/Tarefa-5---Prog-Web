@@ -1,0 +1,180 @@
+<!--
+
+Tarefa 5 - Javascript
+
+Nome: Rafael Zanchetta Perassi
+
+Turma: Analise e Desenvolvimento de Sistemas - Semi-Presencial.
+
+Materia: Programação WEB
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Tarefa 5 - Rafael Zanchetta Perassi - ADS - Semi-presencial</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    #container {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+  <h1>TAREFA 5 - <a href="https://github.com/rperassi" target="_blank" rel="noopener noreferrer">REPOSITÓRIO GITHUB</a>
+  </h1>
+
+  <h3>Exercício 1 - Crie duas variáveis com o valor 10 e 100. Mostre o valor da soma, subtração, divisão e multiplicação em um ALERT.</h3>
+  <span>Clique nos botões para visualizar o resultado!</span>
+  <br><br>
+  <button id="soma2">Soma</button>
+  <button id="sub2">Subtração</button>
+  <button id="divis2">Divisão</button>
+  <button id="mult2">Multiplicação</button>
+
+  <h3>Exercício 2 - Crie um loop que mostre na tela o valor de 10 a 100.</h3>
+  <span>Clique em "Exibir" para ver a sequência!/span><br><br>
+  <button id="resultado22">Exibir</button>
+
+  <h3>Exercício 3 e 4 - Crie uma variável que recebe o valor fixo 5. Mostre a tabuada desse número. Adapte o exercício anterior para o valor não ser mais fixo. O valor deve ser recebido de um campo da tela.</h3>
+  <span>Insira um número e clique em exibir!</span>
+  <input type="number" placeholder="Tabuada de:" id="num32" />
+  <button id="tabuada2">Exibir</button>
+
+  <h3>Exercício 5 - Fazer um calculadora que receberá dois valores e a operação (+,-,*,/). Ao clicar no botão calcular o resultado é demonstrado.</h3>
+  <span>Insira os valores e clique em calcular!</span>
+  <input type="" placeholder="Tipo da Operação" id="op42" />
+  <input type="number" id="n142" />
+  <input type="number" id="n242" />
+  <button id="calcular42">Calcular</button>
+
+  <h3>Exercício 6 - Percorra o array [1,2,3,4,5,6,7,8,9,10] e exiba apenas os valores pares.</h3>
+  <span>Clique em "Exibir Pares"</span>
+  <button id="pares2">Exibir Pares</button>
+  <div id="resultado62"></div>
+
+  <h3>Exercício 7 - O custo de um carro novo ao consumidor é obtido com a seguinte fórmula:</h3>
+  <h3>custo final = custo de fábrica + (custo de fábrica * percentual do distribuidor) + (custo de fábrica * percentual de impostos)</h3>
+  <h3>O usuário terá uma tela para entrar com os valores:</h3>
+  <h3>- custo de fábrica => nome do input custoFabrica</h3>
+  <h3>- % distribuidor => nome do input percDistribuidor</h3>
+  <h3>- % impostos => nome do input percImpostos</h3>
+  <h3>- Valor final => nome do input valorfinal</h3>
+  <h3>Deverá executar o cálculo e demonstrar o resultado no “valorfinal” quando clicar no botão “btncalcular”.</h3>
+  <input type="number" placeholder="Custo de Fabrica" id="custoFabrica2" />
+  <input type="number" placeholder="Perc. Distribuidor" id="percDistribuidor2" />
+  <input type="number" placeholder="Perc. Impostos" id="percImpostos2" />
+  <button id="btncalcular2">Calcular</button>
+  <div id="valorfinal2"></div>
+  <br><br>
+  </div>
+
+  <script>
+    let x = 15;
+    let y = 150;
+
+    // Ex 1 - Versão 2
+    document.querySelector("#soma2").addEventListener("click", () => {
+      alert("Soma: " + (x + y));
+    });
+    document.querySelector("#sub2").addEventListener("click", () => {
+      alert("Subtração: " + (x - y));
+    });
+    document.querySelector("#divis2").addEventListener("click", () => {
+      alert("Divisão: " + x / y);
+    });
+    document.querySelector("#mult2").addEventListener("click", () => {
+      alert("Multiplicação: " + x * y);
+    });
+
+    // Ex 2 - Versão 2
+    const array22 = [];
+    for (let i = 5; i <= 50; i++) {
+      array22.push(i);
+    }
+    document.querySelector("#resultado22").addEventListener("click", () => {
+      document.querySelector("#resultado22").innerHTML = array22.join(" ");
+    });
+
+    // Ex 3 e 4 - Versão 2
+    document.querySelector("#tabuada2").addEventListener("click", () => {
+      let n32 = parseInt(document.querySelector("#num32").value);
+      let result32 = "";
+      for (let i = 1; i <= 10; i++) {
+        result32 += n32 + " x " + i + " = " + n32 * i + " | ";
+      }
+      document.querySelector("#tabuada2").innerHTML = result32;
+    });
+
+    // Ex 5 - Versão 2
+    document.querySelector("#calcular42").addEventListener("click", () => {
+      let op42 = document.querySelector("#op42").value;
+      let n142 = parseFloat(document.querySelector("#n142").value);
+      let n242 = parseFloat(document.querySelector("#n242").value);
+
+      let resultado42;
+
+      switch (op42) {
+        case "+":
+          resultado42 = n142 + n242;
+          break;
+        case "-":
+          resultado42 = n142 - n242;
+          break;
+        case "*":
+          resultado42 = n142 * n242;
+          break;
+        case "/":
+          resultado42 = n142 / n242;
+          break;
+        default:
+          resultado42 = "Operação inválida!";
+      }
+
+      document.querySelector("#calcular42").innerHTML =
+        "Resultado: " + resultado42;
+    });
+
+    // Ex 6 - Versão 2
+    const array62 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    document.querySelector("#pares2").addEventListener("click", () => {
+      let pares2 = array62.filter((num) => num % 2 === 0);
+      document.querySelector("#resultado62").innerHTML = pares2.join(" ");
+    });
+
+    // Ex 7 - Versão 2
+    document.querySelector("#btncalcular2").addEventListener("click", () => {
+      let custoFabrica2 = parseFloat(
+        document.querySelector("#custoFabrica2").value
+      );
+      let percDistribuidor2 = parseFloat(
+        document.querySelector("#percDistribuidor2").value
+      );
+      let percImpostos2 = parseFloat(
+        document.querySelector("#percImpostos2").value
+      );
+
+      let custoFinal2 =
+        custoFabrica2 +
+        custoFabrica2 * (percDistribuidor2 / 100) +
+        custoFabrica2 * (percImpostos2 / 100);
+
+      document.querySelector("#valorfinal2").innerHTML = custoFinal2;
+    });
+  </script>
+</body>
+
+</html>
