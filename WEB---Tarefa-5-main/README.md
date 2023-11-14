@@ -1,8 +1,4 @@
 ## Exercícios de JavaScript
-
-#### Não copiem, levem como inspiração. 😁
-
-
 ## Exercício 1
 Crie duas variáveis com os valores 10 e 100. Mostre o valor da soma, subtração, divisão e multiplicação em um ALERT.
 ## Exercício 2
